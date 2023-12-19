@@ -1,0 +1,68 @@
+.messagePopup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: #272727; /* Dark background */
+  color: #f9f9f9; /* Light text color */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+.messageContent {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.messageType {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.messageText {
+  margin-right: 20px;
+}
+
+.closeButton {
+  margin-left: auto;
+  background: #555;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #f9f9f9;
+  border-radius: 15%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background: #777;
+  color: #fff;
+}
+
+.messagePopup.error .messageType {
+  color: #e74c3c;
+}
+
+.messagePopup.success .messageType {
+  color: #2ecc71;
+}
+
+.messagePopup.info .messageType {
+  color: #3498db;
+}
+
+.messagePopup.warning .messageType {
+  color: #f1c40f;
+}
