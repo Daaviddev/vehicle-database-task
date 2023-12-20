@@ -5,6 +5,9 @@ const VehicleMakeConst = [
     placeholder: 'Insert Make Name',
     rules: 'required',
     type: 'text',
+    options: {
+      autoTrimValue: true,
+    },
   },
   {
     name: 'marketShare',
@@ -12,6 +15,9 @@ const VehicleMakeConst = [
     placeholder: 'Insert Market Share',
     rules: 'required',
     type: 'text',
+    options: {
+      autoTrimValue: true,
+    },
   },
   {
     name: 'marketSegment',
@@ -19,6 +25,9 @@ const VehicleMakeConst = [
     placeholder: 'Insert Market Segment',
     rules: 'required',
     type: 'text',
+    options: {
+      autoTrimValue: true,
+    },
   },
   {
     name: 'originCountry',
@@ -26,6 +35,9 @@ const VehicleMakeConst = [
     placeholder: 'Insert Origin Country',
     rules: 'required',
     type: 'text',
+    options: {
+      autoTrimValue: true,
+    },
   },
   {
     name: 'parentCompany',
@@ -33,6 +45,9 @@ const VehicleMakeConst = [
     placeholder: 'Insert Parent Company',
     rules: 'required',
     type: 'text',
+    options: {
+      autoTrimValue: true,
+    },
   },
 ];
 

@@ -6,7 +6,7 @@ import TableComponent from './TableComponent';
 import FilterComponent from './FilterComponent';
 import PaginationComponent from './PaginationComponent';
 
-import styles from './CommonVehiclePageLayout.module.css';
+import styles from '../pages/VehicleViews.module.css';
 
 const CommonVehiclePageLayout = observer(
   ({
