@@ -9,6 +9,7 @@ import './App.css';
 
 // Lazy load the pages
 const VehicleMakePage = lazy(() => import('./pages/VehicleMakePage'));
+const VehicleModelPage = lazy(() => import('./pages/VehicleModelPage'));
 
 const App = observer(() => (
   <div className="app">
@@ -17,6 +18,8 @@ const App = observer(() => (
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<VehicleMakePage />} />
+          <Route path="/vehicle-makes" element={<VehicleMakePage />} />
+          <Route path="/vehicle-models" element={<VehicleModelPage />} />
         </Routes>
       </Suspense>
     </div>
