@@ -1,4 +1,4 @@
-const CreateButton = ({ onClick }) => {
+const ButtonComponent = ({ onClick }) => {
   return (
     <button type="button" className="create-button" onClick={onClick}>
       Create New
@@ -6,4 +6,4 @@ const CreateButton = ({ onClick }) => {
   );
 };
 
-export default CreateButton;
+export default ButtonComponent;

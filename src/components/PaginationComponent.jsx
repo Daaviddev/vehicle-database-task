@@ -1,6 +1,6 @@
 import styles from './Pagination.module.css';
 
-const Pagination = ({
+const PaginationComponent = ({
   currentPage,
   totalPages,
   onPageChange,
@@ -65,4 +65,4 @@ const Pagination = ({
   );
 };
 
-export default Pagination;
+export default PaginationComponent;
