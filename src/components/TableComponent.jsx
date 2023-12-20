@@ -1,6 +1,13 @@
 import styles from './TableComponent.module.css';
 
-const Table = ({ columns, data, pageSize, onEdit, onDelete, onSort }) => {
+const TableComponent = ({
+  columns,
+  data,
+  pageSize,
+  onEdit,
+  onDelete,
+  onSort,
+}) => {
   // Default to an empty array if data is not provided
   const tableData = data || [];
 
@@ -92,4 +99,4 @@ const Table = ({ columns, data, pageSize, onEdit, onDelete, onSort }) => {
   );
 };
 
-export default Table;
+export default TableComponent;
