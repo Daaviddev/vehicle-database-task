@@ -11,6 +11,7 @@ const TableComponent = ({
   // Default to an empty array if data is not provided
   const tableData = data || [];
 
+  // Calculate the number of empty rows to render
   const emptyRowsCount = pageSize - tableData.length;
 
   const renderSortArrow = () => {

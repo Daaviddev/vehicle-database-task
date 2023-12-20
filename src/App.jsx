@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 
 import messagePopupStore from './stores/messagePopupStore';
 import MessagePopup from './components/MessagePopup';
+import SidePanelNav from './components/SidePanelNav';
 
 import './App.css';
 
@@ -15,6 +16,7 @@ const VehicleModelForm = lazy(() => import('./pages/VehicleModelForm'));
 
 const App = observer(() => (
   <div className="app">
+    <SidePanelNav />
     <div className="main-content">
       <MessagePopup messagePopupStore={messagePopupStore} />
       <Suspense fallback={<div>Loading...</div>}>

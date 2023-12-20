@@ -77,16 +77,20 @@ class VehicleModelStore {
 
   async addVehicleModel(data) {
     try {
+      // Clone the data to avoid mutating the original object
       const parsedData = { ...data };
 
+      // Check if make is a string and convert it to object
       if (parsedData.make && typeof parsedData.make === 'string') {
         const makeObject = JSON.parse(parsedData.make);
 
+        // Update parsedData with make name and ID from makeObject
         parsedData.make = makeObject.name;
         parsedData.makeId = makeObject.id;
       }
 
       await VehicleModelService.addVehicleModel(parsedData);
+
       this.fetchModels(false);
 
       showMessagePopup('Vehicle model added successfully.', 'success');
@@ -100,17 +104,21 @@ class VehicleModelStore {
 
   async updateVehicleModel(id, data) {
     try {
+      // Clone the data to avoid mutating the original object
       const parsedData = { ...data };
 
+      // Check if make is a string and convert it to object
       if (parsedData.make && typeof parsedData.make === 'string') {
         const makeObject = JSON.parse(parsedData.make);
 
+        // Update parsedData with make name and ID from makeObject
         parsedData.make = makeObject.name;
         parsedData.makeId = makeObject.id;
       }
-
       await VehicleModelService.updateVehicleModel(id, parsedData);
+
       this.fetchModels(false);
+
       showMessagePopup('Vehicle model updated successfully.', 'success');
     } catch (error) {
       showMessagePopup(

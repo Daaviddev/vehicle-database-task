@@ -2,14 +2,16 @@ import { observer } from 'mobx-react';
 
 import styles from './FormFieldComponent.module.css';
 
-// src/components/reusable/FormField.jsx
 const FormFieldComponent = observer(({ field }) => {
+  // Function to render the input field based on the field type
   const renderInput = () => {
     switch (field.type) {
       case 'text':
+        // Renders a text input field
         return <input id={field.id} name={field.name} {...field.bind()} />;
 
       case 'select': {
+        // For a select field, maps over options and renders them
         const options = field.extra || [];
         return (
           <select id={field.id} name={field.name} {...field.bind()}>

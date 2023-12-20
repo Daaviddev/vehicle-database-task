@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+// Custom hook for initializing forms with data from a store
 const useFormInitialization = (
   store,
   formConfig,
@@ -7,17 +8,22 @@ const useFormInitialization = (
   isModel = false,
   additionalStore = undefined
 ) => {
+  // useEffect to handle the lifecycle of the form initialization
   useEffect(() => {
+    // Async function to initialize the form
     const initializeForm = async () => {
       try {
+        // Validate if store and formConfig objects are provided
         if (!store || !formConfig) {
           throw new Error('Store or formConfig is undefined');
         }
 
+        // Fetch models or makes if necessary
         if (isModel) {
           if (store.models.length === 0) {
             await store.fetchModels();
           }
+          // Fetch additional data for models if an additionalStore is provided
           if (
             additionalStore &&
             typeof additionalStore.getMakeNames === 'function'
@@ -28,6 +34,7 @@ const useFormInitialization = (
           await store.fetchMakes();
         }
 
+        // Populate the form with existing data if an ID is provided
         if (id) {
           const dataToEdit = (isModel ? store.models : store.makes).find(
             (item) => item.id === id
@@ -39,6 +46,7 @@ const useFormInitialization = (
           }
         }
 
+        // Update form configuration for models if necessary
         if (isModel && additionalStore) {
           const makeField = formConfig.$('make');
           if (makeField) {
@@ -48,12 +56,14 @@ const useFormInitialization = (
           }
         }
       } catch (error) {
+        // Handle any errors that occur during form initialization
         console.error('Error in useFormInitialization:', error.message);
       }
     };
 
+    // Call the initializeForm function
     initializeForm();
-  }, [store, formConfig, id, isModel, additionalStore]);
+  }, [store, formConfig, id, isModel, additionalStore]); // Dependencies for useEffect
 };
 
 export default useFormInitialization;

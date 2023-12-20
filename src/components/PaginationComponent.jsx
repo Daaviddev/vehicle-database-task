@@ -1,4 +1,4 @@
-import styles from './Pagination.module.css';
+import styles from './PaginationComponent.module.css';
 
 const PaginationComponent = ({
   currentPage,
