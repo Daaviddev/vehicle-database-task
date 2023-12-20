@@ -1,9 +1,12 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+
 import ButtonComponent from './ButtonComponent';
 import TableComponent from './TableComponent';
 import FilterComponent from './FilterComponent';
 import PaginationComponent from './PaginationComponent';
+
+import styles from './CommonVehiclePageLayout.module.css';
 
 const CommonVehiclePageLayout = observer(
   ({
@@ -21,12 +24,12 @@ const CommonVehiclePageLayout = observer(
     const data = entityPath === 'vehicle-makes' ? store.makes : store.models;
 
     return (
-      <div className="page-canvas">
-        <div className="view-header-div">
+      <div className={styles.pageCanvas}>
+        <div className={styles.pageHeaderWrapper}>
           <h2>{title}</h2>
           <ButtonComponent onClick={onCreateNew} />
         </div>
-        <div className="components-wrapper">
+        <div className={styles.componentsWrapper}>
           <FilterComponent onFilterApply={handleFilter} />
           <TableComponent
             columns={columns}
