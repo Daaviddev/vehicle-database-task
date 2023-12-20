@@ -5,9 +5,6 @@ const VehicleModelConst = [
     placeholder: 'Insert Model Name',
     rules: 'required',
     type: 'text',
-    options: {
-      autoTrimValue: true,
-    },
   },
   {
     name: 'make',
@@ -23,9 +20,6 @@ const VehicleModelConst = [
     placeholder: 'Insert Engine Type',
     rules: 'required',
     type: 'text',
-    options: {
-      autoTrimValue: true,
-    },
   },
   {
     name: 'year',
@@ -33,9 +27,6 @@ const VehicleModelConst = [
     placeholder: 'Insert Year',
     rules: 'required',
     type: 'text',
-    options: {
-      autoTrimValue: true,
-    },
   },
   {
     name: 'bodyType',
@@ -43,9 +34,6 @@ const VehicleModelConst = [
     placeholder: 'Insert Body Type',
     rules: 'required',
     type: 'text',
-    options: {
-      autoTrimValue: true,
-    },
   },
 ];
 

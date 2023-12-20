@@ -52,6 +52,26 @@ export const generateFormConfig = (fieldConfigs) => {
   }
 };
 
+// Function to process 'make' field
+async function processMakeField(form) {
+  const makeField = form.fields.get('make');
+  if (!makeField) {
+    console.error("'make' field not found in form");
+    return false;
+  }
+
+  const makeFieldValue = makeField.value;
+  const makeOptions = makeField.extra || [];
+  const selectedMake = makeOptions.find(
+    (option) => option.id.toLowerCase() === makeFieldValue.toLowerCase()
+  );
+
+  if (selectedMake) {
+    form.$('make').set('value', JSON.stringify(selectedMake));
+  }
+  return true;
+}
+
 // Function to handle form submission logic
 export const handleFormSubmit = async (
   form,
@@ -74,25 +94,33 @@ export const handleFormSubmit = async (
     form.onSubmit();
 
     // Process form submission if the form is valid
-    if (form.isValid) {
+    if (!form.isValid) return;
+
+    try {
+      // Common logic for 'make' field processing
+      const makeProcessed = isModel ? await processMakeField(form) : true;
+      if (!makeProcessed) return;
+
       // Update or add vehicle model/make based on provided ID
       if (id) {
-        if (isModel) {
-          await store.updateVehicleModel(id, form.values());
-        } else {
-          await store.updateVehicleMake(id, form.values());
-        }
+        const updateFunction = isModel
+          ? store.updateVehicleModel
+          : store.updateVehicleMake;
+        await updateFunction(id, form.values());
       } else {
-        console.log('Form values:', form.values());
-        if (isModel) {
-          console.log('Adding model');
-          await store.addVehicleModel(form.values());
-        } else {
-          await store.addVehicleMake(form.values());
-        }
+        const addFunction = isModel
+          ? store.addVehicleModel
+          : store.addVehicleMake;
+        await addFunction(form.values());
       }
+
       // Navigate to a specified path after form processing
       navigate(navigatePath);
+    } catch (error) {
+      console.error(
+        `Error processing vehicle ${isModel ? 'model' : 'make'}:`,
+        error
+      );
     }
   } catch (error) {
     // Handle any errors during form submission

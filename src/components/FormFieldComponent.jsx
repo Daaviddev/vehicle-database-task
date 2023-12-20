@@ -17,7 +17,7 @@ const FormFieldComponent = observer(({ field }) => {
           <select id={field.id} name={field.name} {...field.bind()}>
             <option value="">Choose Vehicle Make</option>
             {options.map((option) => (
-              <option key={option.name} value={JSON.stringify(option)}>
+              <option key={option.id} value={option.id}>
                 {option.name}
               </option>
             ))}

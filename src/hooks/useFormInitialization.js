@@ -41,13 +41,25 @@ const useFormInitialization = (
           );
           if (dataToEdit) {
             formConfig.update(dataToEdit);
+            if (isModel) {
+              const makeField = formConfig.$('make');
+              if (makeField) {
+                makeField.set('extra', additionalStore.makeNames);
+                const selectedMake = additionalStore.makeNames.find(
+                  (item) =>
+                    item.name.toLowerCase() ===
+                    dataToEdit.makeDisplay.toLowerCase()
+                );
+                makeField.set('value', selectedMake ? selectedMake.id : ''); // Ensure selectedMake.id is a string or number
+              }
+            }
           } else {
             throw new Error('Data to edit not found');
           }
         }
 
         // Update form configuration for models if necessary
-        if (isModel && additionalStore) {
+        if (isModel && additionalStore && !id) {
           const makeField = formConfig.$('make');
           if (makeField) {
             makeField.set('extra', additionalStore.makeNames);

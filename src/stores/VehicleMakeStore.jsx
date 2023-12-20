@@ -52,6 +52,11 @@ class VehicleMakeStore {
       paginationChange: action,
       getMakeNames: action,
     });
+
+    this.addVehicleMake = this.addVehicleMake.bind(this);
+    this.updateVehicleMake = this.updateVehicleMake.bind(this);
+    this.deleteVehicleMake = this.deleteVehicleMake.bind(this);
+    this.fetchMakes = this.fetchMakes.bind(this);
   }
 
   async fetchMakes(showErrorPopup = true) {

@@ -48,6 +48,11 @@ class VehicleModelStore {
       filterModels: action,
       paginationChange: action,
     });
+
+    this.addVehicleModel = this.addVehicleModel.bind(this);
+    this.updateVehicleModel = this.updateVehicleModel.bind(this);
+    this.deleteVehicleModel = this.deleteVehicleModel.bind(this);
+    this.fetchModels = this.fetchModels.bind(this);
   }
 
   async fetchModels(showErrorPopup = true) {
