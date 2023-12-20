@@ -9,7 +9,9 @@ import './App.css';
 
 // Lazy load the pages
 const VehicleMakePage = lazy(() => import('./pages/VehicleMakePage'));
+const VehicleMakeForm = lazy(() => import('./pages/VehicleMakeForm'));
 const VehicleModelPage = lazy(() => import('./pages/VehicleModelPage'));
+const VehicleModelForm = lazy(() => import('./pages/VehicleModelForm'));
 
 const App = observer(() => (
   <div className="app">
@@ -19,7 +21,14 @@ const App = observer(() => (
         <Routes>
           <Route path="/" element={<VehicleMakePage />} />
           <Route path="/vehicle-makes" element={<VehicleMakePage />} />
+          <Route path="/vehicle-makes/create" element={<VehicleMakeForm />} />
+          <Route path="/vehicle-makes/edit/:id" element={<VehicleMakeForm />} />
           <Route path="/vehicle-models" element={<VehicleModelPage />} />
+          <Route path="/vehicle-models/create" element={<VehicleModelForm />} />
+          <Route
+            path="/vehicle-models/edit/:id"
+            element={<VehicleModelForm />}
+          />
         </Routes>
       </Suspense>
     </div>

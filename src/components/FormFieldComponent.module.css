@@ -1,0 +1,51 @@
+/* Base styles for field components */
+.fieldCanvas,
+.fieldWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.fieldCanvas {
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.fieldCanvas small {
+  color: #ff0000;
+  min-height: 1.2rem;
+  margin-top: 0.25rem;
+}
+
+.fieldWrapper {
+  flex-direction: column;
+  align-items: start;
+}
+
+.fieldContainer {
+  width: 100%;
+  text-align: left;
+}
+
+.fieldContainer label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.fieldInputWrapper input,
+.fieldInputWrapper select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.fieldInputWrapper input:focus,
+.fieldInputWrapper select:focus,
+.fieldInputWrapper input:hover,
+.fieldInputWrapper select:hover {
+  outline: none;
+  border: 1px solid #4caf50;
+}
